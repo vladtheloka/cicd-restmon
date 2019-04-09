@@ -1,4 +1,4 @@
 language: python
 script:
-  - python api.py
+  - python cicd-restmon/restmon/api.py
   - python -m pytest -v

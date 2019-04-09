@@ -1,4 +1,4 @@
-language: python 2.7
+language: python
 script:
   - python api.py
   - python -m pytest -v

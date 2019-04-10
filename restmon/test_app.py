@@ -34,4 +34,4 @@ class FlaskAppTests(unittest.TestCase):
         result = self.app.get('/')
 
         # assert the response data
-        self.assertEqual(result.data, {'Hello' : 'World'})
+        self.assertEqual(result.data, {"Hello" : "World"})

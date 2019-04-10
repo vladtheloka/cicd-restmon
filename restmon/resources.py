@@ -30,5 +30,5 @@ class getStorage(Resource):
 
 class frontPage(Resource):
 	def get(self):
-		return {'Hello' : 'World'}
+		return {"Hello" : "World"}
 		

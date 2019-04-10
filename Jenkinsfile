@@ -1,4 +1,4 @@
-node('dockerhost') {
+node {
   def appName = 'cicd-restmon'
   def imageTag = "vladtheloka/${appName}:${env.BRANCH_NAME}.${env.BUILD_NUMBER}"
 

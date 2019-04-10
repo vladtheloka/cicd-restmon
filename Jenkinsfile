@@ -1,5 +1,5 @@
 node {
-  def appName = 'cicd-restmon'
+  def appName = 'cicd-restmon/restmon/api'
   def imageTag = "vladtheloka/${appName}:${env.BRANCH_NAME}.${env.BUILD_NUMBER}"
 
   checkout scm

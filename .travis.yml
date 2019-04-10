@@ -14,3 +14,4 @@ after script:
   - docker rm -f app
 after_success:
   - sh .travis/deploy_dockerhub.sh
+  - test “$TRAVIS_BRANCH” = “master” && sh .travis/deploy_heroku.sh

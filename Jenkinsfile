@@ -7,4 +7,3 @@ node('dockerhost') {
   stage 'Build image'
   sh("docker build -t ${imageTag} .")
   }
-}

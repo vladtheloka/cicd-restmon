@@ -1,0 +1,17 @@
+sudo: required
+language: python
+python:
+  - "2.7"
+services:
+  - docker
+before_install:
+  - docker build -t api .
+  - docker run -d --name app api
+  - docker ps -a
+script:
+  - docker exec app python -m unittest discover
+after script:
+  - docker rm -f app
+after_success:
+  - sh .travis/deploy_dockerhub.sh
+  - test “$TRAVIS_BRANCH” = “master” && sh .travis/deploy_heroku.sh

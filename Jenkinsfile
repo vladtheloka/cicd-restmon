@@ -18,5 +18,8 @@ pipeline {
 }
 
 def buildApp() {
-	def appImage = docker.build("cicd-restmon/myapp:${BUILD_NUMBER}")
+        withEnv(['HOME='+pwd()])
+        {
+        	def appImage = docker.build("cicd-restmon/myapp:${BUILD_NUMBER}")
+        }
 }

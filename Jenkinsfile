@@ -22,7 +22,17 @@ pipeline {
 			steps {
 				afterTests()
 			}
+		}
+		stage("Deploy to Docker Hub") {
+			steps {
+				deployToDokerHub()
+			}
 		} 
+		stage("Deploy to Heroku"){
+			steps{
+				deployToHeroku()
+			}
+		}
 	} 
 
 }
@@ -41,4 +51,14 @@ def runUnitTests(){
 
 def afterTests(){
 	sh("docker rm -f app")
+}
+
+def deployToDokerHub(){
+	sh("docker login -u $DOCKER_USER -p $DOCKER_PASS")
+	sh("docker build -f Dockerfile -t $DOCKER_REPO:latest .")
+	sh("docker push $DOCKER_REPO:latest")
+}
+
+def deployToHeroku(){
+	sh .travis/deploy_heroku.sh
 }

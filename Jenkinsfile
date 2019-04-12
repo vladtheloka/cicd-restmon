@@ -29,6 +29,7 @@ pipeline {
 
 def buildApp() {
 	checkout scm
+	sh("docker rm -f app")
 	sh("docker build -t api .")
 	sh("docker run -d --name app api")
 	sh("docker ps -a")

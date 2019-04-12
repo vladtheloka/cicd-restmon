@@ -19,5 +19,6 @@ pipeline {
 
 def buildApp() {
 	checkout scm
+	sh("docker build -t api .")
 	def appImage = docker.build("cicd-restmon/restmon/api:${BUILD_NUMBER}")
 }

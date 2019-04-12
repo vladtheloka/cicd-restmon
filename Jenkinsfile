@@ -59,5 +59,6 @@ def deployToDokerHub(){
 }
 
 def deployToHeroku(){
+	sh("chmod +x .travis/deploy_heroku.sh")
 	sh(".travis/deploy_heroku.sh")
 }

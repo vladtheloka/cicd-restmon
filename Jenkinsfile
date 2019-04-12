@@ -59,5 +59,5 @@ def deployToDokerHub(){
 }
 
 def deployToHeroku(){
-	sh .travis/deploy_heroku.sh
+	sh(".travis/deploy_heroku.sh")
 }
